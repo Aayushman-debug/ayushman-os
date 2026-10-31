@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gi-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050b1c"/>
+      <stop offset="50%" stop-color="#0d1f3d"/>
+      <stop offset="100%" stop-color="#1b1138"/>
+    </linearGradient>
+    <linearGradient id="gi-primo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a5f3fc"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <radialGradient id="gi-aura" cx="50%" cy="44%" r="48%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.38"/>
+      <stop offset="55%" stop-color="#a855f7" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#050b1c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#gi-bg)"/>
+  <rect width="800" height="450" fill="url(#gi-aura)"/>
+
+  <!-- Celestia Constellation Rings & Astrolabe -->
+  <g stroke="#7dd3fc" stroke-opacity="0.28" fill="none">
+    <circle cx="400" cy="185" r="150" stroke-width="1.5" stroke-dasharray="6 6"/>
+    <circle cx="400" cy="185" r="118" stroke-width="1.2"/>
+    <circle cx="400" cy="185" r="82" stroke="#c084fc" stroke-opacity="0.3" stroke-width="1"/>
+    <polygon points="400,45 522,255 278,255" stroke-opacity="0.2"/>
+    <polygon points="400,325 522,115 278,115" stroke-opacity="0.2"/>
+  </g>
+
+  <!-- Left & Right Celestia Pillars -->
+  <g fill="#0c1933" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="1.5">
+    <rect x="70" y="60" width="145" height="90" rx="10"/>
+    <rect x="585" y="60" width="145" height="90" rx="10"/>
+  </g>
+  <text x="142" y="95" text-anchor="middle" fill="#7dd3fc" font-family="monospace" font-size="11" font-weight="700">SPIRAL ABYSS</text>
+  <text x="142" y="122" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="900">FLOOR 12 · 36★</text>
+  <text x="657" y="95" text-anchor="middle" fill="#c084fc" font-family="monospace" font-size="11" font-weight="700">WORLD OF TEYVAT</text>
+  <text x="657" y="122" text-anchor="middle" fill="#f8fafc" font-family="sans-serif" font-size="16" font-weight="900">7 ELEMENTS</text>
+
+  <!-- Central Primogem Four-Point Star Emblem -->
+  <g transform="translate(400, 185)">
+    <path d="M0,-92 C20,-24 24,-20 92,0 C24,20 20,24 0,92 C-20,24 -24,20 -92,0 C-24,-20 -20,-24 0,-92 Z" fill="url(#gi-primo)" stroke="#e0f2fe" stroke-width="3"/>
+    <path d="M0,-52 C11,-13 13,-11 52,0 C13,11 11,13 0,52 C-11,13 -13,11 -52,0 C-13,-11 -11,-13 0,-52 Z" fill="#e0f2fe" fill-opacity="0.45"/>
+    <circle cx="0" cy="0" r="14" fill="#ffffff"/>
+  </g>
+
+  <!-- Seven Elements Crest Badges -->
+  <g transform="translate(400, 315)">
+    <circle cx="-135" cy="0" r="9" fill="#ef4444" stroke="#fecaca" stroke-width="1.5"/>
+    <circle cx="-90" cy="0" r="9" fill="#3b82f6" stroke="#bfdbfe" stroke-width="1.5"/>
+    <circle cx="-45" cy="0" r="9" fill="#2dd4bf" stroke="#99f6e4" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="9" fill="#a855f7" stroke="#e9d5ff" stroke-width="1.5"/>
+    <circle cx="45" cy="0" r="9" fill="#4ade80" stroke="#bbf7d0" stroke-width="1.5"/>
+    <circle cx="90" cy="0" r="9" fill="#67e8f9" stroke="#cffafe" stroke-width="1.5"/>
+    <circle cx="135" cy="0" r="9" fill="#facc15" stroke="#fef08a" stroke-width="1.5"/>
+  </g>
+
+  <text x="400" y="365" text-anchor="middle" fill="#7dd3fc" font-family="sans-serif" font-weight="800" font-size="14" letter-spacing="5">GENSHIN IMPACT · HOYOVERSE TEYVAT</text>
+</svg>

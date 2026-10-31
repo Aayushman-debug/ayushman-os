@@ -1,0 +1,542 @@
+@import "tailwindcss";
+
+:root {
+  --background: #07090e;
+  --foreground: #f1f5f9;
+  --card: #0b0e18;
+  --card-foreground: #f1f5f9;
+  --popover: #0b0e18;
+  --popover-foreground: #f1f5f9;
+  --primary: #9333ea;
+  --primary-foreground: #ffffff;
+  --secondary: #06b6d4;
+  --secondary-foreground: #ffffff;
+  --muted: #1e2438;
+  --muted-foreground: #94a3b8;
+  --accent: #7c3aed;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #9333ea;
+  --radius: 0.75rem;
+}
+
+body {
+  background-color: #07090e;
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background-color: rgba(168, 85, 247, 0.35);
+  color: #ffffff;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #090b12;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2438;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3756;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(13, 16, 27, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(16, 20, 34, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
+}
+
+/* Alternate portfolio systems are isolated behind the selected root theme. */
+.portfolio-shell {
+  min-height: 100vh;
+  color: var(--theme-foreground, inherit);
+  background: var(--theme-background, transparent);
+  transition: color 300ms ease, background-color 300ms ease;
+}
+
+.portfolio-app {
+  background-color: transparent;
+  color: inherit;
+}
+
+html[data-portfolio-theme="experimental"] .portfolio-shell,
+html[data-portfolio-theme="editorial"] .portfolio-shell {
+  color: var(--theme-foreground);
+  font-family: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+}
+
+html[data-portfolio-theme="editorial"] .portfolio-app h1,
+html[data-portfolio-theme="editorial"] .portfolio-app h2,
+html[data-portfolio-theme="editorial"] .portfolio-app h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.045em;
+}
+
+html[data-portfolio-theme="experimental"] .portfolio-app h1 {
+  font-size: clamp(2.8rem, 8vw, 6.5rem);
+  line-height: 0.92;
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  text-transform: uppercase;
+}
+
+html[data-portfolio-theme="experimental"] .portfolio-app .text-white,
+html[data-portfolio-theme="editorial"] .portfolio-app .text-white,
+html[data-portfolio-theme="terminal"] .portfolio-app .text-white,
+html[data-portfolio-theme="village"] .portfolio-app .text-white {
+  color: var(--theme-foreground) !important;
+}
+
+html[data-portfolio-theme="experimental"] .portfolio-app :is(.text-neutral-300, .text-neutral-400, .text-slate-300, .text-slate-400),
+html[data-portfolio-theme="editorial"] .portfolio-app :is(.text-neutral-300, .text-neutral-400, .text-slate-300, .text-slate-400),
+html[data-portfolio-theme="terminal"] .portfolio-app :is(.text-neutral-300, .text-neutral-400, .text-slate-300, .text-slate-400),
+html[data-portfolio-theme="village"] .portfolio-app :is(.text-neutral-300, .text-neutral-400, .text-slate-300, .text-slate-400) {
+  color: var(--theme-muted) !important;
+}
+
+html[data-portfolio-theme="experimental"] .portfolio-app :is([class~="bg-[#0b0e18]"], [class~="bg-[#080a12]"], [class~="bg-[#07090e]"]),
+html[data-portfolio-theme="editorial"] .portfolio-app :is([class~="bg-[#0b0e18]"], [class~="bg-[#080a12]"], [class~="bg-[#07090e]"]),
+html[data-portfolio-theme="village"] .portfolio-app :is([class~="bg-[#0b0e18]"], [class~="bg-[#080a12]"], [class~="bg-[#07090e]"], [class~="bg-[#060913]"], [class~="bg-[#02030a]"]) {
+  background-color: var(--theme-surface) !important;
+}
+
+html[data-portfolio-theme="terminal"] .portfolio-shell {
+  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+}
+
+html[data-portfolio-theme="terminal"] .portfolio-shell::before {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  content: "";
+  opacity: 0.07;
+  background: repeating-linear-gradient(to bottom, transparent 0 3px, #8aff79 4px);
+}
+
+html[data-portfolio-theme="liquid"] .portfolio-shell {
+  background:
+    radial-gradient(ellipse at 15% 12%, rgba(31, 154, 165, 0.16), transparent 36rem),
+    radial-gradient(ellipse at 88% 48%, rgba(48, 96, 163, 0.12), transparent 34rem),
+    var(--theme-background);
+}
+
+html[data-portfolio-theme="play"] .portfolio-shell {
+  background:
+    radial-gradient(circle at 8% 10%, rgba(255, 189, 89, 0.12), transparent 24rem),
+    radial-gradient(circle at 92% 45%, rgba(194, 105, 255, 0.14), transparent 30rem),
+    var(--theme-background);
+}
+
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) .portfolio-app > header {
+  color: var(--theme-foreground);
+  background: color-mix(in srgb, var(--theme-background) 90%, transparent);
+  border-color: var(--theme-border);
+}
+
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) .portfolio-app > header a,
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) .portfolio-app > header button {
+  color: var(--theme-foreground);
+}
+
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) [data-portfolio-card],
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) .theme-picker {
+  color: var(--theme-foreground);
+  background-color: var(--theme-surface);
+  border-color: var(--theme-border);
+  border-radius: var(--theme-radius);
+  box-shadow: 0 16px 38px -24px color-mix(in srgb, var(--theme-accent) 42%, transparent);
+  transition:
+    color 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    border-radius 350ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: theme-card-enter 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) [data-portfolio-card] :is(h2, h3, h4) {
+  color: var(--theme-foreground);
+}
+
+html[data-portfolio-theme="experimental"] [data-portfolio-card] :is(.text-white, .text-neutral-100, .text-neutral-200, .text-neutral-300, .text-neutral-400, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400),
+html[data-portfolio-theme="editorial"] [data-portfolio-card] :is(.text-white, .text-neutral-100, .text-neutral-200, .text-neutral-300, .text-neutral-400, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400),
+html[data-portfolio-theme="terminal"] [data-portfolio-card] :is(.text-white, .text-neutral-100, .text-neutral-200, .text-neutral-300, .text-neutral-400, .text-slate-100, .text-slate-200, .text-slate-300, .text-slate-400) {
+  color: var(--theme-foreground) !important;
+}
+
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) [data-portfolio-card] :is(p, span, time) {
+  --tw-text-opacity: 1;
+}
+
+html[data-portfolio-theme="experimental"] [data-portfolio-card] {
+  border-radius: 0.15rem;
+  clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 13px, 100% 100%, 0 100%);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--theme-accent) 78%, transparent);
+}
+
+html[data-portfolio-theme="experimental"] [data-portfolio-card]:hover {
+  transform: translate(4px, -4px);
+  box-shadow: 2px 2px 0 var(--theme-accent);
+}
+
+@media (min-width: 1024px) {
+  html[data-portfolio-theme="experimental"] [data-portfolio-grid="projects"] > [data-portfolio-card]:nth-child(3n + 1) {
+    grid-column: span 2;
+  }
+}
+
+html[data-portfolio-theme="liquid"] [data-portfolio-card] {
+  backdrop-filter: blur(10px) saturate(125%);
+  -webkit-backdrop-filter: blur(10px) saturate(125%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 20px 50px -34px rgba(54, 218, 224, 0.65);
+}
+
+html[data-portfolio-theme="liquid"] [data-portfolio-card]:hover {
+  border-color: color-mix(in srgb, var(--theme-accent) 65%, white);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 24px 55px -30px rgba(54, 218, 224, 0.72);
+  transform: translateY(-4px) scale(1.01);
+}
+
+html[data-portfolio-theme="editorial"] [data-portfolio-card] {
+  box-shadow: none;
+  border-width: 0 0 1px;
+}
+
+html[data-portfolio-theme="editorial"] [data-portfolio-card]:hover {
+  transform: translateY(-5px);
+  border-color: var(--theme-accent);
+}
+
+html[data-portfolio-theme="editorial"] [data-portfolio-card="media"] img,
+html[data-portfolio-theme="editorial"] [data-portfolio-card="cinematic"] img {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 500ms cubic-bezier(0.22, 1, 0.36, 1), transform 500ms ease;
+}
+
+html[data-portfolio-theme="editorial"] [data-portfolio-card="media"]:hover img,
+html[data-portfolio-theme="editorial"] [data-portfolio-card="cinematic"]:hover img {
+  clip-path: inset(2% 2% 2% 2%);
+  transform: scale(1.045);
+}
+
+html[data-portfolio-theme="terminal"] [data-portfolio-card] {
+  border-style: dashed;
+  box-shadow: inset 0 0 0 1px rgba(138, 255, 121, 0.07);
+  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+}
+
+html[data-portfolio-theme="terminal"] [data-portfolio-card]::before {
+  content: "> ";
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  z-index: 30;
+  color: var(--theme-accent);
+  font: 700 0.7rem/1 monospace;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+html[data-portfolio-theme="terminal"] [data-portfolio-card]:hover::before,
+html[data-portfolio-theme="terminal"] [data-portfolio-card]:focus-within::before {
+  opacity: 0.8;
+  transform: translateX(0);
+}
+
+html[data-portfolio-theme="terminal"] [data-portfolio-card]:hover {
+  transform: translateX(3px);
+  box-shadow: inset 3px 0 var(--theme-accent), inset 0 0 0 1px rgba(138, 255, 121, 0.1);
+}
+
+html[data-portfolio-theme="play"] [data-portfolio-card]:nth-child(odd) {
+  border-radius: 2rem 1rem 2rem 1rem;
+}
+
+html[data-portfolio-theme="play"] [data-portfolio-card]:nth-child(even) {
+  border-radius: 1rem 2rem 1rem 2rem;
+}
+
+html[data-portfolio-theme="play"] [data-portfolio-card]:hover {
+  transform: translateY(-5px) rotate(-0.5deg) scale(1.015);
+  box-shadow: 0 16px 0 -7px color-mix(in srgb, var(--theme-accent) 65%, transparent);
+}
+
+html[data-portfolio-theme]:not([data-portfolio-theme="default"]) .theme-option[aria-checked="true"] {
+  border-color: var(--theme-accent);
+}
+
+@keyframes theme-card-enter {
+  from {
+    opacity: 0.65;
+    translate: 0 12px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  html[data-portfolio-theme="editorial"] [data-portfolio-card] {
+    border-radius: 0.3rem;
+  }
+
+  html[data-portfolio-theme="experimental"] .portfolio-app h1 {
+    font-size: clamp(2.4rem, 13vw, 4.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-shell,
+  .portfolio-shell *,
+  .portfolio-shell *::before,
+  .portfolio-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .portfolio-shell [data-portfolio-card]:hover {
+    transform: none !important;
+  }
+}
+
+
+/* ==========================================================================
+   COZY VILLAGE THEME STYLING
+   ========================================================================== */
+html[data-portfolio-theme="village"] .portfolio-shell {
+  background:
+    radial-gradient(ellipse at 8% 6%, rgba(142, 202, 230, 0.22), transparent 32rem),
+    radial-gradient(ellipse at 92% 14%, rgba(216, 243, 220, 0.35), transparent 36rem),
+    radial-gradient(ellipse at 50% 95%, rgba(254, 243, 199, 0.35), transparent 40rem),
+    var(--theme-background);
+  color: var(--theme-foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Helvetica Neue", sans-serif;
+}
+
+html[data-portfolio-theme="village"] .portfolio-app > header {
+  background: rgba(252, 249, 242, 0.92) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--theme-border) !important;
+  box-shadow: 0 4px 20px -8px rgba(120, 53, 15, 0.08);
+}
+
+html[data-portfolio-theme="village"] .portfolio-app > header a,
+html[data-portfolio-theme="village"] .portfolio-app > header button {
+  color: var(--theme-foreground) !important;
+}
+
+html[data-portfolio-theme="village"] .portfolio-app > header a:hover {
+  color: var(--theme-primary) !important;
+}
+
+html[data-portfolio-theme="village"] [data-portfolio-card],
+html[data-portfolio-theme="village"] .theme-picker {
+  background-color: var(--theme-surface) !important;
+  border: 1px solid var(--theme-border) !important;
+  border-radius: var(--theme-radius) !important;
+  box-shadow: 0 10px 30px -15px rgba(120, 53, 15, 0.08), 0 4px 14px -4px rgba(45, 106, 79, 0.06) !important;
+}
+
+html[data-portfolio-theme="village"] [data-portfolio-card]:hover {
+  transform: translateY(-3px);
+  border-color: rgba(45, 106, 79, 0.35) !important;
+  box-shadow: 0 16px 36px -12px rgba(120, 53, 15, 0.14), 0 6px 18px -4px rgba(200, 109, 81, 0.12) !important;
+}
+
+html[data-portfolio-theme="village"] .theme-picker {
+  background-color: #fffdfa !important;
+  border: 1px solid rgba(120, 53, 15, 0.22) !important;
+  box-shadow: 0 20px 45px -15px rgba(120, 53, 15, 0.25) !important;
+}
+
+html[data-portfolio-theme="village"] .theme-option {
+  border-color: rgba(120, 53, 15, 0.14) !important;
+  background-color: #fcf9f2 !important;
+}
+
+html[data-portfolio-theme="village"] .theme-option[aria-checked="true"] {
+  border-color: var(--theme-primary) !important;
+  background-color: rgba(216, 243, 220, 0.75) !important;
+}
+
+html[data-portfolio-theme="village"] .theme-option:hover {
+  border-color: var(--theme-accent) !important;
+  background-color: #f7f1e4 !important;
+}
+
+/* Sidebar in village theme */
+html[data-portfolio-theme="village"] aside {
+  background-color: rgba(252, 249, 242, 0.94) !important;
+  border-right: 1px solid var(--theme-border) !important;
+}
+
+html[data-portfolio-theme="village"] aside a {
+  color: var(--theme-foreground) !important;
+}
+
+html[data-portfolio-theme="village"] aside a:hover,
+html[data-portfolio-theme="village"] aside a[data-active="true"] {
+  background-color: rgba(216, 243, 220, 0.6) !important;
+  color: var(--theme-primary) !important;
+}
+
+/* Village theme badges and cards */
+html[data-portfolio-theme="village"] .village-badge {
+  background-color: rgba(216, 243, 220, 0.75);
+  border: 1px solid rgba(45, 106, 79, 0.25);
+  color: #2d6a4f;
+}
+
+html[data-portfolio-theme="village"] .village-badge-warm {
+  background-color: rgba(254, 243, 199, 0.75);
+  border: 1px solid rgba(120, 53, 15, 0.22);
+  color: #78350f;
+}
+
+html[data-portfolio-theme="village"] .village-badge-terracotta {
+  background-color: rgba(255, 237, 230, 0.85);
+  border: 1px solid rgba(200, 109, 81, 0.3);
+  color: #c86d51;
+}
+
+/* ─── Comprehensive Village Theme Global Overrides for Entire Website ─── */
+html[data-portfolio-theme="village"] body {
+  background-color: #fcf9f2 !important;
+  color: #2c251e !important;
+}
+
+html[data-portfolio-theme="village"] main {
+  background-color: transparent !important;
+  color: #2c251e !important;
+}
+
+/* All dark surfaces across all pages -> Warm parchment surfaces */
+html[data-portfolio-theme="village"] :is(
+  .glass-panel,
+  .glass-card,
+  [class*="bg-[#0b0e18]"],
+  [class*="bg-[#080a12]"],
+  [class*="bg-[#07090e]"],
+  [class*="bg-[#060811]"],
+  [class*="bg-[#060913]"],
+  [class*="bg-[#02030a]"],
+  [class*="bg-[#0d101d]"],
+  [class*="bg-[#0e111a]"],
+  [class*="bg-[#0f172a]"],
+  [class*="bg-[#101426]"],
+  [class*="bg-zinc-900"],
+  [class*="bg-zinc-950"],
+  [class*="bg-slate-900"],
+  [class*="bg-slate-950"],
+  [class*="bg-neutral-900"],
+  [class*="bg-neutral-950"]
+):not(.island-canvas *):not(.game-hud *):not([data-theme-ignore]):not([data-portfolio-card="cinematic"]):not([data-portfolio-card="cinematic"] *) {
+  background-color: #fffdfa !important;
+  border-color: rgba(120, 53, 15, 0.14) !important;
+  color: #2c251e !important;
+  box-shadow: 0 4px 18px -4px rgba(120, 53, 15, 0.06), 0 2px 6px -2px rgba(45, 106, 79, 0.04) !important;
+}
+
+/* Subtle inner surfaces (search bars, sub-containers, inputs) */
+html[data-portfolio-theme="village"] :is(
+  input,
+  textarea,
+  select,
+  [class*="bg-black/40"],
+  [class*="bg-black/50"],
+  [class*="bg-black/60"],
+  [class*="bg-white/[0.03]"],
+  [class*="bg-white/[0.04]"],
+  [class*="bg-white/[0.05]"],
+  [class*="bg-white/5"]
+):not(.island-canvas *):not(.game-hud *):not([data-theme-ignore]):not([data-portfolio-card="cinematic"] *) {
+  background-color: #f5efe6 !important;
+  border-color: rgba(120, 53, 15, 0.18) !important;
+  color: #2c251e !important;
+}
+
+html[data-portfolio-theme="village"] :is(input, textarea)::placeholder {
+  color: #8c8275 !important;
+}
+
+/* Headings & Title Typography Contrast */
+html[data-portfolio-theme="village"] :is(h1, h2, h3, h4, h5, h6, .text-white, .text-slate-100, .text-neutral-100):not(.island-canvas *):not(.game-hud *):not(.btn-accent *):not([data-theme-ignore]):not([data-portfolio-card="cinematic"] *) {
+  color: #2c251e !important;
+}
+
+/* Secondary & Muted Typography */
+html[data-portfolio-theme="village"] :is(.text-neutral-400, .text-slate-400, .text-zinc-400):not(.island-canvas *):not(.game-hud *):not([data-theme-ignore]):not([data-portfolio-card="cinematic"] *) {
+  color: #685e52 !important;
+}
+
+html[data-portfolio-theme="village"] :is(.text-neutral-500, .text-slate-500, .text-zinc-500):not(.island-canvas *):not(.game-hud *):not([data-theme-ignore]):not([data-portfolio-card="cinematic"] *) {
+  color: #78350f !important;
+}
+
+/* Subtle Borders */
+html[data-portfolio-theme="village"] :is(
+  .border-white\/10,
+  .border-white\/5,
+  .border-white\/15,
+  .border-white\/20,
+  .border-white\/\[0\.07\]
+):not(.island-canvas *):not(.game-hud *):not([data-theme-ignore]):not([data-portfolio-card="cinematic"] *) {
+  border-color: rgba(120, 53, 15, 0.14) !important;
+}
+
+/* Tables in Village Theme */
+html[data-portfolio-theme="village"] table th {
+  background-color: #f5efe6 !important;
+  color: #78350f !important;
+  border-color: rgba(120, 53, 15, 0.15) !important;
+}
+
+html[data-portfolio-theme="village"] table tr:hover td {
+  background-color: rgba(216, 243, 220, 0.35) !important;
+}
+
+/* Sidebar Specifics */
+html[data-portfolio-theme="village"] aside .font-mono.uppercase {
+  color: #78350f !important;
+  font-weight: 700 !important;
+}

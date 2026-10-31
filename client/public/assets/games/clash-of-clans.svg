@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="coc-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#140c04"/>
+      <stop offset="50%" stop-color="#291807"/>
+      <stop offset="100%" stop-color="#1a0b2e"/>
+    </linearGradient>
+    <linearGradient id="coc-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#a16207"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#coc-bg)"/>
+
+  <!-- Isometric Village Grid Diamond -->
+  <g stroke="#eab308" stroke-opacity="0.16" stroke-width="1.5" fill="none">
+    <polygon points="400,35 710,195 400,355 90,195"/>
+    <polygon points="400,75 635,195 400,315 165,195"/>
+  </g>
+
+  <!-- Town Hall 18 Citadel & Shield Crest -->
+  <g transform="translate(400, 190)">
+    <!-- Fortress Base -->
+    <polygon points="-85,65 -70,-45 0,-85 70,-45 85,65" fill="#1e1b4b" stroke="url(#coc-gold)" stroke-width="4"/>
+    <!-- Battlements -->
+    <rect x="-78" y="-62" width="32" height="28" rx="3" fill="#312e81" stroke="url(#coc-gold)" stroke-width="2.5"/>
+    <rect x="-18" y="-92" width="36" height="32" rx="3" fill="#312e81" stroke="url(#coc-gold)" stroke-width="2.5"/>
+    <rect x="46" y="-62" width="32" height="28" rx="3" fill="#312e81" stroke="url(#coc-gold)" stroke-width="2.5"/>
+    <!-- Glowing Core Gate -->
+    <path d="M-32,65 L-32,10 A32,32 0 0,1 32,10 L32,65 Z" fill="#f59e0b" stroke="#fef08a" stroke-width="2.5"/>
+    <!-- TH 18 Emblem -->
+    <rect x="-56" y="-28" width="112" height="34" rx="8" fill="#090d16" stroke="url(#coc-gold)" stroke-width="2"/>
+    <text x="0" y="-6" text-anchor="middle" fill="#fef08a" font-family="monospace" font-weight="900" font-size="20" letter-spacing="2">TH 18</text>
+  </g>
+
+  <text x="400" y="365" text-anchor="middle" fill="#fde047" font-family="sans-serif" font-weight="800" font-size="14" letter-spacing="5">CLASH OF CLANS · TOWN HALL 18 MAXED</text>
+</svg>

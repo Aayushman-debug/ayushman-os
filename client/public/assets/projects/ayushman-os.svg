@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ay-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#04060d"/>
+      <stop offset="50%" stop-color="#0a1022"/>
+      <stop offset="100%" stop-color="#130b24"/>
+    </linearGradient>
+    <radialGradient id="ay-nebula-1" cx="30%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#04060d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ay-nebula-2" cx="75%" cy="65%" r="50%">
+      <stop offset="0%" stop-color="#a855f7" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#04060d" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ay-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#ay-bg)"/>
+  <rect width="800" height="450" fill="url(#ay-nebula-1)"/>
+  <rect width="800" height="450" fill="url(#ay-nebula-2)"/>
+
+  <!-- Outer Browser / OS Window Frame -->
+  <rect x="36" y="24" width="728" height="402" rx="18" fill="#070a14" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="2"/>
+  <rect x="36" y="24" width="728" height="36" rx="18" fill="#0d1326"/>
+  <circle cx="62" cy="42" r="5.5" fill="#f43f5e"/>
+  <circle cx="80" cy="42" r="5.5" fill="#f59e0b"/>
+  <circle cx="98" cy="42" r="5.5" fill="#10b981"/>
+  <rect x="260" y="32" width="280" height="20" rx="10" fill="#060913" stroke="#1e293b" stroke-width="1"/>
+  <text x="400" y="46" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">ayushman.dev · Personal Digital Space</text>
+
+  <!-- Left Mini Sidebar -->
+  <rect x="48" y="70" width="125" height="344" rx="12" fill="#0b0f1e" stroke="#1e293b" stroke-width="1"/>
+  <text x="64" y="94" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="13">AYushMan</text>
+  <rect x="58" y="108" width="105" height="22" rx="6" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-opacity="0.5"/>
+  <text x="68" y="123" fill="#67e8f9" font-family="monospace" font-size="9" font-weight="700">Dashboard</text>
+  <text x="68" y="148" fill="#94a3b8" font-family="monospace" font-size="9">Academics · Sem V</text>
+  <text x="68" y="170" fill="#94a3b8" font-family="monospace" font-size="9">Gaming · 7 IDs</text>
+  <text x="68" y="192" fill="#94a3b8" font-family="monospace" font-size="9">Music · 7 Lists</text>
+  <text x="68" y="214" fill="#94a3b8" font-family="monospace" font-size="9">Anime · 24 Sync</text>
+  <text x="68" y="236" fill="#94a3b8" font-family="monospace" font-size="9">Projects · 3</text>
+
+  <!-- Main Hero Banner inside UI -->
+  <rect x="186" y="70" width="564" height="128" rx="14" fill="#0c1224" stroke="#a855f7" stroke-opacity="0.4" stroke-width="1.5"/>
+  <text x="468" y="128" text-anchor="middle" fill="#1e293b" font-family="sans-serif" font-weight="900" font-size="56" letter-spacing="4">AYushMan</text>
+  <text x="468" y="124" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="40" letter-spacing="1">AYushMan</text>
+  <rect x="338" y="138" width="260" height="6" rx="3" fill="url(#ay-accent)"/>
+  <text x="468" y="164" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="700" letter-spacing="2">B.TECH CSE · RTU KOTA · FULL-STACK WORKSPACE</text>
+
+  <!-- Bottom 3 Interactive Bento Cards inside UI Preview -->
+  <!-- Card 1: RTU CGPA -->
+  <rect x="186" y="210" width="178" height="118" rx="12" fill="#0c1326" stroke="#06b6d4" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="202" y="232" fill="#38bdf8" font-family="monospace" font-size="9" font-weight="700">RTU ACADEMICS</text>
+  <text x="202" y="266" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="28">8.46 CGPA</text>
+  <text x="202" y="284" fill="#94a3b8" font-family="monospace" font-size="9">Sem I–IV Cleared · Sem V</text>
+  <rect x="202" y="298" width="146" height="8" rx="4" fill="#1e293b"/>
+  <rect x="202" y="298" width="124" height="8" rx="4" fill="#06b6d4"/>
+
+  <!-- Card 2: Holo Gaming -->
+  <rect x="379" y="210" width="178" height="118" rx="12" fill="#110f29" stroke="#f59e0b" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="395" y="232" fill="#fbbf24" font-family="monospace" font-size="9" font-weight="700">HOLO GAMING VAULT</text>
+  <text x="395" y="258" fill="#ffffff" font-family="sans-serif" font-weight="800" font-size="14">Slur · 10,200 CR</text>
+  <text x="395" y="278" fill="#6ee7b7" font-family="monospace" font-size="11" font-weight="700">BGMI 5.63 KD · HOMIES</text>
+  <text x="395" y="298" fill="#c4b5fd" font-family="monospace" font-size="10">Chess 2100 · CoC TH18</text>
+
+  <!-- Card 3: Spotify & AniList -->
+  <rect x="572" y="210" width="178" height="118" rx="12" fill="#0b1917" stroke="#10b981" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="588" y="232" fill="#34d399" font-family="monospace" font-size="9" font-weight="700">SPOTIFY &amp; ANIME</text>
+  <text x="588" y="258" fill="#ffffff" font-family="sans-serif" font-weight="800" font-size="14">7 Curated Playlists</text>
+  <text x="588" y="278" fill="#f472b6" font-family="monospace" font-size="10" font-weight="700">24 Anime · Big Three</text>
+  <text x="588" y="298" fill="#94a3b8" font-family="monospace" font-size="9">@wtfk1yo · @wtfk1y0</text>
+
+  <!-- Bottom Telemetry Strip -->
+  <rect x="186" y="340" width="564" height="74" rx="12" fill="#090d1a" stroke="#334155" stroke-width="1"/>
+  <polyline points="206,392 260,378 320,384 380,365 440,370 500,355 560,362 620,348 725,352" fill="none" stroke="url(#ay-accent)" stroke-width="3"/>
+  <text x="206" y="362" fill="#e2e8f0" font-family="monospace" font-size="10" font-weight="700">REACT 19 · TYPESCRIPT · TAILWIND · EXPRESS · MYSQL</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ig-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d0718"/>
+      <stop offset="45%" stop-color="#220a29"/>
+      <stop offset="100%" stop-color="#2b0f18"/>
+    </linearGradient>
+    <linearGradient id="ig-brand" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fcb045"/>
+      <stop offset="45%" stop-color="#fd1d1d"/>
+      <stop offset="100%" stop-color="#833ab4"/>
+    </linearGradient>
+    <radialGradient id="ig-glow" cx="50%" cy="44%" r="48%">
+      <stop offset="0%" stop-color="#e1306c" stop-opacity="0.4"/>
+      <stop offset="65%" stop-color="#833ab4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0d0718" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="600" fill="url(#ig-bg)"/>
+  <rect width="600" height="600" fill="url(#ig-glow)"/>
+
+  <!-- Subtle Grid Rings -->
+  <g stroke="#f472b6" stroke-opacity="0.12" fill="none">
+    <circle cx="300" cy="255" r="185" stroke-width="1" stroke-dasharray="6 6"/>
+    <circle cx="300" cy="255" r="140" stroke-width="1"/>
+  </g>
+
+  <!-- Official Instagram Camera Glyph -->
+  <g transform="translate(300, 250)">
+    <rect x="-86" y="-86" width="172" height="172" rx="46" fill="#12091d" stroke="url(#ig-brand)" stroke-width="8"/>
+    <rect x="-58" y="-58" width="116" height="116" rx="32" fill="none" stroke="url(#ig-brand)" stroke-width="7"/>
+    <circle cx="0" cy="0" r="28" fill="none" stroke="#f8fafc" stroke-width="7"/>
+    <circle cx="36" cy="-36" r="7.5" fill="#fcb045"/>
+  </g>
+
+  <!-- Handle & Metric Strip -->
+  <rect x="145" y="380" width="310" height="44" rx="22" fill="#090512" fill-opacity="0.85" stroke="#e1306c" stroke-opacity="0.45" stroke-width="1.5"/>
+  <text x="300" y="407" text-anchor="middle" fill="#fbcfe8" font-family="monospace" font-weight="800" font-size="16" letter-spacing="1.5">@wtfk1yo · आयुष्मान</text>
+</svg>
